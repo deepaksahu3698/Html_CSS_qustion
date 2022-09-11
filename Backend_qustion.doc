@@ -1,0 +1,497 @@
+Q1: Explain the difference between local and global npm packages installation
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+The main difference between local and global packages is this:
+
+local packages are installed in the directory where you run npm install <package-name>, and they are put in the node_modules folder under this directory
+global packages are all put in a single place in your system (exactly where depends on your setup), regardless of where you run npm install -g <package-name>
+In general, all packages should be installed locally.
+
+This makes sure you can have dozens of applications in your computer, all running a different version of each package if needed.
+Updating a global package would make all your projects use the new release, and as you can imagine this might cause nightmares in terms of maintenance, as some packages might break compatibility with further dependencies, and so on.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: nodejs.dev
+Q2: What are the benefits of using Node.js?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Following are main benefits of using Node.js
+
+Aynchronous and Event Driven - All APIs of Node.js library are aynchronous that is non-blocking. It essentially means a Node.js based server never waits for a API to return data. Server moves to next API after calling it and a notification mechanism of Events of Node.js helps server to get response from the previous API call.
+Very Fast - Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
+Single Threaded but highly Scalable - Node.js uses a single threaded model with event looping. Event mechanism helps server to respond in a non-bloking ways and makes server highly scalable as opposed to traditional servers which create limited threads to handle requests. Node.js uses a single threaded program and same program can services much larger number of requests than traditional server like Apache HTTP Server.
+No Buffering - Node.js applications never buffer any data. These applications simply output the data in chunks.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: tutorialspoint.com
+Q3: What are the key features of Node.js?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Let’s look at some of the key features of Node.js.
+
+Asynchronous event driven IO helps concurrent request handling – All APIs of Node.js are asynchronous. This feature means that if a Node receives a request for some Input/Output operation, it will execute that operation in the background and continue with the processing of other requests. Thus it will not wait for the response from the previous requests.
+Fast in Code execution – Node.js uses the V8 JavaScript Runtime engine, the one which is used by Google Chrome. Node has a wrapper over the JavaScript engine which makes the runtime engine much faster and hence processing of requests within Node.js also become faster.
+Single Threaded but Highly Scalable – Node.js uses a single thread model for event looping. The response from these events may or may not reach the server immediately. However, this does not block other operations. Thus making Node.js highly scalable. Traditional servers create limited threads to handle requests while Node.js creates a single thread that provides service to much larger numbers of such requests.
+Node.js library uses JavaScript – This is another important aspect of Node.js from the developer’s point of view. The majority of developers are already well-versed in JavaScript. Hence, development in Node.js becomes easier for a developer who knows JavaScript.
+There is an Active and vibrant community for the Node.js framework – The active community always keeps the framework updated with the latest trends in the web development.
+No Buffering – Node.js applications never buffer any data. They simply output the data in chunks.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: techbeamers.com
+Q4: What is Callback Hell and what is the main cause of it?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Asynchronous JavaScript, or JavaScript that uses callbacks, is hard to get right intuitively. A lot of code ends up looking like this:
+
+fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log('Error finding files: ' + err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(source + filename).size(function (err, values) {
+        if (err) {
+          console.log('Error identifying file size: ' + err)
+        } else {
+          console.log(filename + ' : ' + values)
+          aspect = (values.width / values.height)
+          widths.forEach(function (width, widthIndex) {
+            height = Math.round(width / aspect)
+            console.log('resizing ' + filename + 'to ' + height + 'x' + height)
+            this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
+              if (err) console.log('Error writing file: ' + err)
+            })
+          }.bind(this))
+        }
+      })
+    })
+  }
+})
+See the pyramid shape and all the }) at the end? This is affectionately known as callback hell.
+
+The cause of callback hell is when people try to write JavaScript in a way where execution happens visually from top to bottom. Lots of people make this mistake! In other languages like C, Ruby or Python there is the expectation that whatever happens on line 1 will finish before the code on line 2 starts running and so on down the file.
+
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: callbackhell.com
+Q5: What is Callback?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+A callback is a function called at the completion of a given task; this prevents any blocking, and allows other code to be run in the meantime. Callbacks are the foundation of Node.js. Callbacks give you an interface with which to say, "and when you're done doing that, do all this."
+
+var myCallback = function(data) {
+  console.log('got data: '+data);
+};
+
+var usingItNow = function(callback) {
+  callback('get it?');
+};
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: nodejs.org
+40+ ADO.NET Interview Questions (ANSWERED) to Know and Brush
+40+ ADO.NET Interview Questions (ANSWERED) to Know and Brush
+Top 33 ADO.NET Interview Questions  ADO.NET  33  
+Top 42 SQL Interview Questions  SQL  42  
+Q6: What is V8?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+The V8 library provides Node.js with a JavaScript engine (a program that converts Javascript code into lower level or machine code that microprocessors can understand), which Node.js controls via the V8 C++ API. V8 is maintained by Google, for use in Chrome.
+
+The Chrome V8 engine :
+
+The V8 engine is written in C++ and used in Chrome and Nodejs.
+It implements ECMAScript as specified in ECMA-262.
+The V8 engine can run standalone we can embed it with our own C++ program.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: nodejs.org
+Q7: What is libuv?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+libuv is a C library that is used to abstract non-blocking I/O operations to a consistent interface across all supported platforms. It provides mechanisms to handle file system, DNS, network, child processes, pipes, signal handling, polling and streaming. It also includes a thread pool for offloading work for some things that can't be done asynchronously at the operating system level.
+
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: nodejs.org
+Q8: What is the difference between returning a callback and just calling a callback?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+return callback();
+//some more lines of code; -  won't be executed
+
+callback();
+//some more lines of code; - will be executed
+Of course returning will help the context calling async function get the value returned by callback.
+
+function do2(callback) {
+    log.trace('Execute function: do2');
+    return callback('do2 callback param');
+}
+
+var do2Result = do2((param) => {
+    log.trace(`print ${param}`);
+    return `return from callback(${param})`; // we could use that return
+});
+
+log.trace(`print ${do2Result}`);
+Output:
+
+C:\Work\Node>node --use-strict main.js
+[0] Execute function: do2
+[0] print do2 callback param
+[0] print return from callback(do2 callback param)
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+
+ Full-Stack, Web & Mobile
+
+ Coding & Data Structures
+
+ System Design & Architecture
+Top 51 jQuery Interview Questions  jQuery  51  
+Top 78 UX Design Interview Questions  UX Design  78  
+Top 33 ASP.NET Web API Interview Questions  ASP.NET Web API  33  
+Top 50 CSS Interview Questions  CSS  50  
+Top 42 SQL Interview Questions  SQL  42  
+Top 38 LINQ Interview Questions  LINQ  38  
+Top 68 Kotlin Interview Questions  Kotlin  68  
+Top 46 React Hooks Interview Questions  React Hooks  46  
+Top 22 PWA Interview Questions  PWA  22  
+Top 36 Git Interview Questions  Git  36  
+🤖 Having Data Science & ML Interview? Check  MLStack.Cafe - 1704 Data Science & ML Interview Questions & Answers!
+Q9: Why we always require modules at the top of a file? Can we require modules inside of functions?
+Junior 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Yes, we can but we shall never do it.
+
+Node.js always runs require synchronously. If you require an external module from within functions your module will be synchronously loaded when those functions run and this can cause two problems:
+
+If that module is only needed in one route handler function it might take some time for the module to load synchronously. As a result, several users would be unable to get any access to your server and requests will queue up.
+If the module you require causes an error and crashes the server you may not know about the error.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: justbuildsomething.com
+47 Back-End Developer Interview Questions (ANSWERED) To Focus On
+47 Back-End Developer Interview Questions (ANSWERED) To Focus On
+Top 46 API Design Interview Questions  API Design  46  
+Top 61 Data Structures Interview Questions  Data Structures  61  
+Top 68 Design Patterns Interview Questions  Design Patterns  68  
+Q10: Are you familiar with differences between Node.js modules and ES6 modules?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+The modules used in Node.js follow a module specification known as the CommonJS specification. The recent updates to the JavaScript programming language, in the form of ES6, specify changes to the language, adding things like new class syntax and a module system. This module system is different from Node.js modules. To import ES6 module, we'd use the ES6 import functionality.
+
+Now ES6 modules are incompatible with Node.js modules. This has to do with the way modules are loaded differently between the two formats. If you use a compiler like Babel, you can mix and match module formats.
+
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+Q11: Explain the order of Event Listeners execution in Node.js
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Problem
+Consider this code:
+
+import { EventEmitter } from 'events';
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('myEvent', (data) => {
+    console.log(data, '- FIRST');
+});
+
+console.log('Statement A');
+
+eventEmitter.on("myEvent", data => {
+    console.log(data, '- SECOND');
+});
+
+eventEmitter.emit('myEvent', 'Emitted Statement');
+
+console.log("Statement B");
+What will be the output of this code and why?
+
+Answer
+When executed, the above code gives the output:
+
+> Statement A  
+> Emitted Statement - FIRST  
+> Emitted Statement - SECOND  
+> Statement B
+The listeners are executed in the order the listeners are created for an event emitter.
+
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: medium.com
+Q12: Explain what is wrong with async/await use in the forEach loop
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Problem
+Consider this code:
+
+import fs from 'fs-promise'
+
+async function printFiles () {
+  const files = await getFilePaths() // Assume this works fine
+
+  files.forEach(async (file) => {
+    const contents = await fs.readFile(file, 'utf8')
+    console.log(contents)
+  })
+}
+
+printFiles()
+Is it working as expected? Can you fix it?
+
+Answer
+The code doesn't do what you expect it to do. It just fires off multiple asynchronous calls, but the printFiles function does immediately return after that.
+
+If you want to read the files in sequence, you cannot use forEach indeed. Just use a modern for … of loop instead, in which await will work as expected:
+
+async function printFiles () {
+  const files = await getFilePaths();
+
+  for (const file of files) {
+    const contents = await fs.readFile(file, 'utf8');
+    console.log(contents);
+  }
+}
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+Q13: Fix this code. Explain the fix.
+Mid 
+Top 179 JavaScript Interview Questions  JavaScript  179  
+Problem
+I have this code:
+
+for (var i = 0; i < 5; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, i);
+}
+But the output is unexpected:
+
+5
+5
+5
+5
+5
+Can you fix it to be?
+
+0
+1
+2
+3
+4
+Answer
+The reason this happens is because each timeout is created and then i is incremented. Then when the callback is called, it looks for the value of i and it is 5. The solution is to create a closure so that the current value of i is stored. For example:
+
+for (var i = 0; i < 5; i++) {
+  (function(i) {
+    setTimeout(function () {
+      console.log(i);
+    }, i);
+  })(i);
+}
+Having Tech or Coding Interview? Check 👉 179 JavaScript Interview Questions
+Source: nodejs.org
+32 Advanced Data Structures Interview Questions (ANSWERED) To Smash Your Next Programming Interview
+32 Advanced Data Structures Interview Questions (ANSWERED) To Smash Your Next Programming Interview
+Top 61 Data Structures Interview Questions  Data Structures  61  
+Q14: How does Node.js handle Child Threads?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Node.js, in its essence, is a single thread process. It does not expose child threads and thread management methods to the developer. js does spawn child threads for certain tasks such as asynchronous I/O, but these run behind the scenes and do not execute any application JavaScript code, nor block the main event loop.
+
+If threading support is desired in a Node.js application, there are tools available to enable it, such as the ChildProcess module.
+
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: medium.com
+Q15: How to avoid Callback Hell in Node.js?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Node.js internally uses a single-threaded event loop to process queued events. But this approach may lead to blocking the entire process if there is a task running longer than expected. Node.js addresses this problem by incorporating callbacks also known as higher-order functions. So whenever a long-running process finishes its execution, it triggers the callback associated. Sometimes, it could lead to complex and unreadable code. More the no. of callbacks, longer the chain of returning callbacks would be.
+
+There are four solutions which can address the callback hell problem:
+
+Make your program modular - It proposes to split the logic into smaller modules. And then join them together from the main module to achieve the desired result.
+
+Use async/await mechanism - Async /await is another alternative for consuming promises, and it was implemented in ES8, or ES2017. Async/await is a new way of writing promises that are based on asynchronous code but make asynchronous code look and behave more like synchronous code.
+
+Use promises mechanism - Promises give an alternate way to write async code. They either return the result of execution or the error/exception. Implementing promises requires the use of .then() function which waits for the promise object to return. It takes two optional arguments, both functions. Depending on the state of the promise only one of them will get called. The first function call proceeds if the promise gets fulfilled. However, if the promise gets rejected, then the second function will get called.
+
+Use generators - Generators are lightweight routines, they make a function wait and resume via the yield keyword. Generator functions uses a special syntax function* (). They can also suspend and resume asynchronous operations using constructs such as promises or thunks and turn a synchronous code into asynchronous.
+
+function* HelloGen() {
+  yield 100;
+  yield 400;
+}
+
+var gen = HelloGen();
+
+console.log(gen.next()); // {value: 100, done: false}
+console.log(gen.next()); // {value: 400, done: false}
+console.log(gen.next()); // {value: undefined, done: true}
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: techbeamers.com
+
+ Full-Stack, Web & Mobile
+
+ Coding & Data Structures
+
+ System Design & Architecture
+Top 24 WebSockets Interview Questions  WebSockets  24  
+Top 36 iOS Interview Questions  iOS  36  
+Top 77 MongoDB Interview Questions  MongoDB  77  
+Top 91 TypeScript Interview Questions  TypeScript  91  
+Top 17 Dependency Injection Interview Questions  Dependency Injection  17  
+Top 61 AngularJS Interview Questions  AngularJS  61  
+Top 130 React Interview Questions  React  130  
+Top 84 Ruby Interview Questions  Ruby  84  
+Top 72 Ruby on Rails Interview Questions  Ruby on Rails  72  
+Top 35 Redux Interview Questions  Redux  35  
+🤖 Having Data Science & ML Interview? Check  MLStack.Cafe - 1704 Data Science & ML Interview Questions & Answers!
+Q16: How would you read files in sequence in Node.js? Provide a code example
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+If you want to read the files in sequence, just use a modern for … of loop, in which await will work as expected:
+
+async function printFiles () {
+  const files = await getFilePaths();
+
+  for (const file of files) {
+    const contents = await fs.readFile(file, 'utf8');
+    console.log(contents);
+  }
+}
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+Q17: Is an Event Emitter Synchronous or Asynchronous?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Events are synchronous and blocking. The events raised by event emitters are synchronously executed by the listeners in the current event loop’s iteration. They are implemented with simple function calls. If you look at the eventEmitter code, to send an event to all listeners, it literally just iterates through an array of listeners and calls each listener callback, one after the other.
+
+Consider:
+
+import { EventEmitter } from 'events';
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('myEvent', (data) => {
+    console.log(data);
+});
+
+console.log('Statement A');
+eventEmitter.emit('myEvent', 'Statement B');
+console.log("Statement C");
+When we execute this code snippet, we get the following output in the console:
+
+> Statement A  
+> Statement B  
+> Statement C
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: medium.com
+29 Web Services Interview Questions To Prepare For
+29 Web Services Interview Questions To Prepare For
+Top 46 API Design Interview Questions  API Design  46  
+Top 34 Microservices Interview Questions  Microservices  34  
+Top 58 Web Security Interview Questions  Web Security  58  
+Q18: Provide your favourite reasons to use Node.js
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Reasons to use NodeJS:
+
+It runs Javascript, so you can use the same language on server and client, and even share some code between them (e.g. for form validation, or to render views at either end.)
+The single-threaded event-driven system is fast even when handling lots of requests at once, and also simple, compared to traditional multi-threaded Java or ROR frameworks.
+The ever-growing pool of packages accessible through NPM, including client and server-side libraries/modules, as well as command-line tools for web development. Most of these are conveniently hosted on github, where sometimes you can report an issue and find it fixed within hours! It's nice to have everything under one roof, with standardised issue reporting and easy forking.
+It has become the defacto standard environment in which to run Javascript-related tools and other web-related tools, including task runners, minifiers, beautifiers, linters, preprocessors, bundlers and analytics processors.
+It seems quite suitable for prototyping, agile development and rapid product iteration.
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+Q19: Rewrite promise-based Node.js applications to async/await
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Problem
+Rewrite this code to async/await:
+
+function asyncTask() {
+    return functionA()
+        .then((valueA) => functionB(valueA))
+        .then((valueB) => functionC(valueB))
+        .then((valueC) => functionD(valueC))
+        .catch((err) => logger.error(err))
+}
+Answer
+async function asyncTask() {
+    try {
+        const valueA = await functionA()
+        const valueB = await functionB(valueA)
+        const valueC = await functionC(valueB)
+        return await functionD(valueC)
+    } catch (err) {
+        logger.error(err)
+    }
+}
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: stackoverflow.com
+Q20: What Are Buffer and why to use them in Node.js?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+Pure JavaScript, while great with unicode-encoded strings, does not handle straight binary data very well. This is fine on the browser, where most data is in the form of strings. However, Node.js servers have to also deal with TCP streams and reading and writing to the filesystem, both of which make it necessary to deal with purely binary streams of data.
+
+The Buffer class in Node.js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.
+
+var buffer = Buffer.alloc(16)
+buffer.write("Hello", "utf-8")
+buffer.write(" world!", 5, "utf-8")
+buffer.toString('utf-8')
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: github.cohttps
+Q21: What are Event Emitters?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+EventEmitter is a class that helps us create a publisher-subscriber pattern in NodeJS.
+
+With an event emitter, we can simply raise a new event from a different part of an application, and a listener will listen to the raised event and have some action performed for the event.
+
+import { EventEmitter } from 'events';
+const eventEmitter = new EventEmitter();
+
+// listen to the event
+eventEmitter.on('myEvent', () => {
+    console.log('Data Received'); // this function is the event listener
+});
+
+// publish an event
+eventEmitter.emit('myEvent');
+Having Tech or Coding Interview? Check 👉 126 Node.js Interview Questions
+Source: medium.com
+35 LINQ Interview Questions and Answers
+35 LINQ Interview Questions and Answers
+Top 38 LINQ Interview Questions  LINQ  38  
+Q22: What exactly does module.exports do in Node.js, and what would a simple example be?
+Mid 
+Top 126 Node.js Interview Questions  Node.js  126  
+Answer
+module.exports is the object that's actually returned as the result of a require call.
+
+The exports variable is initially set to that same object (i.e. it's a shorthand "alias"), so in the module code you would usually write something like this:
+
+let myFunc1 = function() { ... };
+let myFunc2 = function() { ... };
+exports.myFunc1 = myFunc1;
+exports.myFunc2 = myFunc2;
+to export (or "expose") the internally scoped functions myFunc1 and myFunc2.
+
+And in the calling code you would use:
+
+const m = require('./mymodule');
+m.myFunc1();
+where the last line shows how the result of require is (usually) just a plain object whose properties may be accessed.
+
